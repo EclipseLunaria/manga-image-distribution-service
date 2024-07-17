@@ -1,0 +1,3 @@
+[submodule "src/routes/shared"]
+	path = src/routes/shared
+	url = https://github.com/EclipseLunaria/shared-microservice-routes.git
