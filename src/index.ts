@@ -5,7 +5,7 @@ import commonRouter from "./routes/shared";
 
 const app = express();
 const port = process.env.PORT || 6967;
-app.use("/extract/", router);
+app.use("/", router);
 app.use("/common/", commonRouter);
 
 app.get("/", (req, res) => {

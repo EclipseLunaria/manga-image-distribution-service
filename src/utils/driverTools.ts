@@ -8,7 +8,8 @@ export const screenshotElement = async (
   page: Page
 ): Promise<Buffer | null> => {
   const boundingBox = await element.boundingBox();
-  if (!boundingBox || boundingBox.height < 1000) {
+  console.log(boundingBox);
+  if (!boundingBox || boundingBox.height  < boundingBox.width) {
     return null;
   }
 
