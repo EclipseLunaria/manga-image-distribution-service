@@ -33,7 +33,7 @@ const checkChapterInS3 = async (prefix: string) => {
     };
 
 
-    const createPresignedUrl = async ({ key }: { key: string }) => {
+    const createPresignedUrl = async (key :string) => {
       const bucket = process.env.BUCKET_NAME;
       const region = process.env.AWS_REGION;
     
@@ -52,10 +52,6 @@ const checkChapterInS3 = async (prefix: string) => {
       );
       return formatUrl(signedUrlObject);
     };
-    
-    
-    
-    // const s3Client = new S3Client({ region: "us-west-2", credentials: fromEnv()});
     
 
     const uploadFileToS3 = async (key: string, body: any) => {
