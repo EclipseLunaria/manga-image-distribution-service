@@ -8,8 +8,7 @@ export const screenshotElement = async (
   page: Page
 ): Promise<Buffer | null> => {
   const boundingBox = await element.boundingBox();
-  console.log(boundingBox);
-  if (!boundingBox || boundingBox.height  < boundingBox.width) {
+  if (!boundingBox) {
     return null;
   }
 
@@ -29,11 +28,10 @@ export const storePage = async (
   pageNumber: number,
   screenshot: Buffer
 ) => {
-    const url = `manga-${mangaId}/chapter-${chapterId}/page-${pageNumber}.jpg`;
-    console.log(`Storing page ${pageNumber} to ${url}`);
+  const url = `manga-${mangaId}/chapter-${chapterId}/page-${pageNumber}.jpg`;
+  console.log(`Storing page ${pageNumber} to ${url}`);
 
   await uploadFileToS3(url, screenshot);
-
 };
 
 export const openPage = async (url: string) => {
