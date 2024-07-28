@@ -4,7 +4,7 @@ import process from "process";
 import commonRouter from "./routes/shared";
 
 const app = express();
-const port = process.env.PORT || 6967;
+const port = process.env.PORT || 6966;
 app.use("/", router);
 app.use("/common/", commonRouter);
 
