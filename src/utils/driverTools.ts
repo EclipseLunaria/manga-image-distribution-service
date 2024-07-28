@@ -1,7 +1,7 @@
 import { ElementHandle, Page } from "puppeteer";
 import { getBrowser } from "./globalBrowser";
 import { uploadFileToS3 } from "./aws";
-export const isDev = process.env.NODE_ENV !== "docker";
+export const isDev = process.env.NODE_ENV !== "production";
 
 export const screenshotElement = async (
   element: ElementHandle,
