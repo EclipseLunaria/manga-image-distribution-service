@@ -8,13 +8,18 @@ export const screenshotElement = async (
   page: Page
 ): Promise<Buffer | null> => {
   const boundingBox = await element.boundingBox();
-  if (!boundingBox) {
+  if (!boundingBox || boundingBox.height < 900) {
     return null;
   }
 
   await page.evaluate((boundingBox) => {
     window.scrollTo(boundingBox.x, boundingBox.y);
   }, boundingBox);
+  // remove element with id top from html
+  const topElem = await page.$("#top");
+  await page.evaluate((topElem) => {
+    topElem?.remove();
+  }, topElem);
 
   return await element.screenshot({
     type: "jpeg",
